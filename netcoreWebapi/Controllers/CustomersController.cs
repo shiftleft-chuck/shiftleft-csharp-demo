@@ -96,8 +96,18 @@ namespace netcoreWebapi.Controllers
         {
             const string connection = @"Data Source=MyData;Initial Catalog=Product;Trusted_Connection=true";
             var conn = new SqlConnection(connection);
+            //*******************************************************
+            /* Vulnerable Code
             string query = "INSERT INTO customers " + sql;
             var command = new SqlCommand(query, conn);
+            //*******************************************************
+            
+            // Remediate Code
+            string query = "INSERT INTO customers " + sql;
+            var command = new SqlCommand(query, conn);
+            command.Parameters.Add(new SqlCommand("sql", sql.text));
+            //*******************************************************
+            
             int result = command.ExecuteNonQuery();
             return Json(string.Format("Result: {0}", result));
         }
