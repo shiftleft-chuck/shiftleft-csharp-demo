@@ -94,11 +94,14 @@ namespace netcoreWebapi.Controllers
         [HttpGet("Add")]
         public JsonResult Get(string sql)
         {
+        /*
             const string connection = @"Data Source=MyData;Initial Catalog=Product;Trusted_Connection=true";
             var conn = new SqlConnection(connection);
             // ************************************************** Vulnerable Code Block *****
             string query = "INSERT INTO customers" + sql;
             var command = new SqlCommand(query, conn);
+            int result = command.ExecuteNonQuery();
+            return Json(string.Format("Result: {0}", result));
             
             // **************************************************
             // ************************************************** Remediated Code Block *****
@@ -108,6 +111,7 @@ namespace netcoreWebapi.Controllers
             // ****************************************************
             int result = command.ExecuteNonQuery();
             return Json(string.Format("Result: {0}", result));
+          */
         }
 
         [HttpPost("xxeSafe")]
