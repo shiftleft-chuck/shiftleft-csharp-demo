@@ -45,7 +45,7 @@ steps:
   displayName: Analyze with NG SAST
   inputs:
     script: |
-      $(Agent.HomeDirectory)\sl.exe analyze --force --app ShiftLeftJavaAzWin --tag branch=$(Build.SourceBranchName) ---csharp --cpg --dotnet-core [netcoreWebapi/netcoreWebapi.csproj]
+      $(Agent.HomeDirectory)\sl.exe analyze --force --app ShiftLeftJavaAzWin --tag branch=$(Build.SourceBranchName) --csharp --cpg --dotnet-core [netcoreWebapi/netcoreWebapi.csproj]
     workingDirectory: '$(Build.SourcesDirectory)'
   env:
     SHIFTLEFT_ACCESS_TOKEN: $(SHIFTLEFT_ACCESS_TOKEN)
