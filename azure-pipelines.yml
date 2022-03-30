@@ -10,10 +10,10 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
+  group: shiftleft-token
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  group: shiftleft-token
 
 steps:
 - task: NuGetToolInstaller@1
