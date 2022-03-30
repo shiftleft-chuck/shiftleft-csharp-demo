@@ -32,3 +32,21 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: PowerShell@2
+  displayName: Download ShiftLeft cli
+  inputs:
+    targetType: 'inline'
+    script: |
+      Invoke-WebRequest -Uri 'https://cdn.shiftleft.io/download/sl-latest-windows-x64.zip' -OutFile $(Agent.HomeDirectory)\sl.zip
+      Expand-Archive -Path $(Agent.HomeDirectory)\sl.zip -DestinationPath $(Agent.HomeDirectory)\
+
+- task: CmdLine@2
+  displayName: Analyze with NG SAST
+  inputs:
+    script: |
+      $(Agent.HomeDirectory)\sl.exe analyze --force --app ShiftLeftJavaAzWin --tag branch=$(Build.SourceBranchName) ---csharp --cpg --dotnet-core [netcoreWebapi/netcoreWebapi.csproj]
+    workingDirectory: '$(Build.SourcesDirectory)'
+  env:
+    SHIFTLEFT_ACCESS_TOKEN: $(SHIFTLEFT_ACCESS_TOKEN)
+
