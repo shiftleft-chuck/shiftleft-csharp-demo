@@ -46,7 +46,7 @@ steps:
   displayName: Analyze with NG SAST
   inputs:
     script: |
-      $(Agent.HomeDirectory)\sl.exe analyze --force --app ShiftLeftJavaAzWin --tag branch=$(Build.SourceBranchName) --csharp --cpg --dotnet-core [shiftleft-csharp-demo/netcoreWebapi/netcoreWebapi.csproj]
+      $(Agent.HomeDirectory)\sl.exe analyze --force --app ShiftLeftJavaAzWin --tag branch=$(Build.SourceBranchName) --csharp --cpg --dotnet [shiftleft-chuck/shiftleft-csharp-demo/netcoreWebapi/netcoreWebapi.csproj]
     workingDirectory: '$(Build.SourcesDirectory)'
   env:
     SHIFTLEFT_ACCESS_TOKEN: eyJhbGciOiJSUzUxMiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJhcGl2NCIsImlhdCI6MTY0ODU4NTIyMCwiaXNzIjoiU2hpZnRMZWZ0Iiwib3JnSUQiOiJlNmM3NGUxOC1kZmMyLTRhM2QtYmQ3YS0zNTJhMmU2YTA0NTYiLCJ0b2tlbklEIjoiZTg0OTVjNDEtMGQyZi00NDU1LThkMzEtZTNhZTMzMmFhYjNjIiwic2NvcGVzIjpbImV4dGVuZGVkIl19.VBqewhH4e5H3pAr3jb8r7HSc_fGKL0A2B2XdWllKUEMWw4eqjUlW2g5j5zVTmSKdLReP9FNFfGTM-L5CE98Nis2P5FiMkQ0WPwa1JwuL5DLEPmovIDEiSYUzg7gnJ9Il0-1UxoGNhecmxt74o0_BWs3_2r_U_y9dpjTt5fAIZWNFuwAfAGcSo2YwqJf-9V9zQIRm_T80hE6V_CoTjkrl63qunXF6DAdR7f92jw2lC8Mqab_znMQSrR6AaFCM5ErupnR66kBrrBK9TNWwXm5y0GVsGNs30lJjzDNHbuLESb-DSrhmZ15tPSFN5MNBZKU_U_cTjaH-T19CK8GRiIu9QQ
