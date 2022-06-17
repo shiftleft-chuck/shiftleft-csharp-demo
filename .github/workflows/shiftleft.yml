@@ -62,6 +62,7 @@ jobs:
     - name: Validate Build Rules
       run: |
         .\sl check-analysis --app shiftleft-csharp-demo `
+        --v2 `
         --branch "${{ github.head_ref || steps.extract_branch.outputs.branch }}" `
         --report `
         --github-pr-number=${{github.event.number}} `
