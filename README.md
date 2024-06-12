@@ -1,4 +1,4 @@
-# ShiftLeft C# Demo - Chuck B.
+# ShiftLeft C# Demo
 This repository contains a vulnerable .NET application that is used in automated demos on shiftleft.io
 
 It is derived from: https://github.com/ShiftLeftSecurity/shiftleft-csharp-example
